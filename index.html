@@ -59,9 +59,10 @@
 					<h2>Hello There</h2>
 					<p>
           </p>
-						<aside class="notes">
+            <aside class="notes">
               I'm from Madrid, now I live in Barcelona. I'm 29. I work as a drupal developer at Ymbra, Citilab.
-              I have a curiosity to improve process.
+              I have a curiosity to improve process. <br>
+              Previously on...
             </aside>
 				</section>
 
@@ -87,9 +88,7 @@
 						<p><img src="images/phpelephant.jpg" alt="elephant"></p>
             <p></p>
 						<aside class="notes">
-              <ul>
-                <li>In since 2014 we have seen PHP become a much more professional and clean language.</li>
-              </ul>
+                Since 2014 we have seen PHP become a much more professional and clean language. <br>
             </aside>
 					</section>
 					<section>
@@ -104,6 +103,7 @@
 					<section>
 						<h2>Reusability</h2>
 						<p>Sharing must be easy or it won't happen.</p>
+            <p>Free software as a feature.</p>
 						<aside class="notes">
               Free software as a practical tool comes into play because you see all this different projects sharing code.
             </aside>
@@ -174,7 +174,7 @@ libraries[jquery.cycle][destination] = libraries
             </p>
             <aside class="notes">
               Some projects include a make file. <br>
-              Drupal core, modules; libraries and themes, dev modules.
+              One file for Drupal core, other for modules, libraries and themes, dev modules.
             </aside>
           </section>
         </section>
@@ -225,7 +225,7 @@ libraries[jquery.cycle][destination] = libraries
 
         <section>
           <section>
-            <h2>Composer - 2012</h2>
+            <h2>Introducing Composer - 2012</h2>
             <p>
             <img src="images/composer.png" alt="Director" width="400">
             </p>
@@ -243,7 +243,7 @@ libraries[jquery.cycle][destination] = libraries
             </ul>
             </p>
             <aside class="notes">
-              It was decided to use components from other project
+              It was decided to use components from other projects.
             </aside>
           </section>
           <section>
@@ -263,20 +263,22 @@ libraries[jquery.cycle][destination] = libraries
               <li class="fragment visible" data-fragment-index="1">Resolves dependencies</li>
               <li class="fragment visible" data-fragment-index="2">Each project defines its own requirements</li>
               <li class="fragment visible" data-fragment-index="3">Performs build tasks</li>
+              <li class="fragment visible" data-fragment-index="3">Autoloading: all code under the same roof:</li>
             </ul>
             </p>
             <aside class="notes">
               <ul>
                 <li>
-                  You don't declare everything that is on your project. Only what you depend on.
+                  Deps: You don't declare everything that is on your project. Only what you depend on.
                 </li>
-                <li>Downloading of js libraries, binaries, cleaning, scaffolding</li>
-                <li>It can be useful for snippets since we have autoloading</li>
+                <li>
+                  Build: Downloading of js libraries, binaries, cleaning, scaffolding, tests
+                </li>
               </ul>
             </aside>
           </section>
           <section>
-            <h2>Similar projects in diferent programming languages</h2>
+            <h2>Similar to composer in diferent programming languages</h2>
             <p>
             <ul>
               <li>npm (javascript)</li>
@@ -311,8 +313,8 @@ $ curl -sS https://getcomposer.org/installer | php -- --install-dir=bin
             </p>
             <aside class="notes">
               It had an exponential grow.<br>
-              Declares what is stable <<br>
-              It manages outdated packages.
+              Declares what is stable <br>
+              It manages outdated packages. <br>
             </aside>
           </section>
           <section>
@@ -344,16 +346,20 @@ composer require &lt;vendor&gt;/&lt;package&gt;
 }
             </code></pre>
             <aside class="notes">
-              Is another shopping list but for higher level stuff.
+              Is another shopping list but for higher level stuff. <br>
+              Commerce as an example that uses it extensibly.
             </aside>
           </section>
           <section>
             <h2>Composer.json vs composer.lock</h2>
             <p>
-              Solves the dependencies and is the key for everyone to have the same versions <br>
+              Dependencies solved.<br>
+              Is the key for everyone to have the same versions.<br>
               Always commit your lock file.
             </p>
             <aside class="notes">
+              Everything downloaded with an exact version number. <br>
+              Lock is a bigger file. <br>
             </aside>
           </section>
           <section>
@@ -362,26 +368,53 @@ composer require &lt;vendor&gt;/&lt;package&gt;
             Reads composer.lock and downloads all your dependencies in the /vendor directory.
             </p>
             <aside class="notes">
-              Everything gets a cache.
+              Everything gets a cache. <br>
+              Needed to develop drupal 8.1.x
             </aside>
           </section>
           <section>
             <h2>composer update</h2>
-            <p>Writes a new composer.lock based on what is on composer.lock and downloads what is needed <br>
-            You can pass only one package to do more atomic updates.
+            <p>Writes a new composer.lock based on what is on composer.json and downloads what is needed <br>
+            You can update only one package to do more atomic updates.
             </p>
             <aside class="notes">
+              For last release crazies.
             </aside>
           </section>
+
+          <section>
+            <h2>Execute binaries</h2>
+            <p>
+            <pre>
+            <code>
+vendor/bin/drush
+            </code>
+            </pre>
+            </p>
+            <p>
+            <pre>
+            <code>
+composer exec drush
+            </code>
+            </pre>
+            </p>
+            <aside class="notes">
+              Examples: drush, phpunit, phpcs, behat... <br>
+              Is a problem not easy to solve for newbies. <br>
+              Drush solves it with drush launcher.
+            </aside>
+          </section>
+
           <section>
             <h2>Global vs local</h2>
             <p>
             The power of comes from having per project dependencies. <br>
             but you can also install composer packages shared by everything and everyone. <br>
-            Use "composer global" before commands.
+            Use "composer global" before commands. (neeeds $COMPOSER_HOME) <br>
             </p>
             <aside class="notes">
-              Same for config.
+              Computer vs. only my repo. <br>
+              Same for config. <br>
             </aside>
           </section>
           <section>
@@ -399,6 +432,7 @@ composer require &lt;vendor&gt;/&lt;package&gt;
             </pre>
             </p>
             <aside class="notes">
+               Follow restrictions.
             </aside>
           </section>
           <section>
@@ -410,7 +444,6 @@ composer require &lt;vendor&gt;/&lt;package&gt;
               All packagist supports this.<br>
               A new feature of drupal 8. <br>
               Contrib doesn't support it.
-
             </aside>
           </section>
           <section>
@@ -418,7 +451,7 @@ composer require &lt;vendor&gt;/&lt;package&gt;
             <p>
             <pre>
             <code>
-Composer install --prefer-dist --no-dev --optimize-autoloader
+composer install --prefer-dist --no-dev --optimize-autoloader
             </code>
             </pre>
             </p>
@@ -435,7 +468,7 @@ Composer install --prefer-dist --no-dev --optimize-autoloader
               </ul>
             </p>
             <aside class="notes">
-              aka library <br>
+              aka reusable library <br>
               Don't have to wait for new releases.
             </aside>
           </section>
@@ -509,20 +542,18 @@ Composer install --prefer-dist --no-dev --optimize-autoloader
               <ul>
               <li>Autoloader is implemented to use the generated composer autoloader instead of Drupal.</li>
               <li>separates scaffold files from the real drupal core</li>
-              <li>Has a skeleton tu put your drush aliases</li>
+              <li>Has a skeleton to put your drush aliases</li>
               </ul>
             </aside>
           </section>
           <section>
             <h2>Profit :D</h2>
-            <p>
             <ul>
               <li>Now everyone can have not only the same modules but also drush and console</li>
               <li>Updating all your modules to the stable versions is just a couple of words away</li>
               <li>Your continous integration system can become much more simple</li>
             </ul>
 
-            </p>
             <aside class="notes">
             </aside>
           </section>
@@ -530,8 +561,6 @@ Composer install --prefer-dist --no-dev --optimize-autoloader
 
         <section>
           <h2>Questions</h2>
-          <p>
-          </p>
           <aside class="notes">
           </aside>
         </section>
