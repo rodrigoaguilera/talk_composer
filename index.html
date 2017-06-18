@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 
 		<title>
-    Making projects is boring, let's start composing them.
+      Better dependency management: leverage composer to the limit.
     </title>
 
 		<meta name="description" content="A talk about composer replacing drush make">
@@ -44,25 +44,28 @@
 			<div class="slides">
 				<section>
 					<h1>
-          Making projects is boring, let's start composing them.
+      Better dependency management: leverage composer to the limit.
           </h1>
-					<h3>Die drush make die</h3>
+					<h3>Can I use composer to do this?</h3>
 					<p>
 						<small>A talk by <a href="http://www.rodrigoaguilera.net">Rodrigo Aguilera</a> / <a href="http://twitter.com/marinero">@marinero</a></small>
 					</p>
 						<aside class="notes">
-              Because I knew there was something better.
+              Motivation: As I was moving to Drupal 8 I knew there was something better.
             </aside>
 				</section>
 
 				<section>
-					<h2>Hello There</h2>
-					<p>
+          <h2>Hello There</h2>
+          <p class="fragment">
+            <img src="ymbralogo.png" alt="Ymbra" width="250" style="border: 0">
           </p>
+
             <aside class="notes">
-              I'm from Madrid, now I live in Barcelona. I'm 29. I work as a drupal developer at Ymbra, Citilab.
+              Thanks to DA. Ymbra <br />
+              I'm from Madrid, now I live in Barcelona. I work as a drupal developer at Ymbra, Citilab. <br />
+              I have been giving talks on default content, multilingual, behat, code review... <br />
               I have a curiosity to improve process. <br>
-              Previously on...
             </aside>
 				</section>
 
@@ -71,14 +74,15 @@
 					<p>
           <ul>
             <li>The PHP reinassance</li>
-            <li>Drush make is great</li>
-            <li>The Drupal island</li>
+            <li>The old days of drush make and the Drupal island</li>
             <li>Composer is awesome</li>
             <li>Your drupal project has dependencies too</li>
+            <li>Compose all the things!</li>
           </ul>
           </p>
 						<aside class="notes">
-              Is a new tool, it has a history, is used by drupal core.
+              This an elastic talk I can give more weight to the beginning or the end.<br />
+              How many of you alredy build your projects with composer? <br />
             </aside>
 				</section>
 
@@ -94,7 +98,7 @@
 					<section>
 						<h2>We have too much code</h2>
 						<p>
-              Takes less time to write a solution yourself than to find a component you can reuse.
+              Takes less time to write (or copypaste) a solution yourself than to find a component you can reuse.
             </p>
 						<aside class="notes">
               Is not such a bad idea but it wasn't getting PHP to be any good.
@@ -105,27 +109,37 @@
 						<p>Sharing must be easy or it won't happen.</p>
             <p>Free software as a feature.</p>
 						<aside class="notes">
-              Free software as a practical tool comes into play because you see all this different projects sharing code.
+              Free software as a practical feature comes into play because you see all this different projects sharing code.
             </aside>
           </section>
           <section>
-            <h2>First attemps, aka the way there</h2>
+            <h2>First attemps, aka: the way there</h2>
             <p>
             <ul>
               <li>Pear (PHP 4, required root, lots of includes)</li>
               <li>Class autoloading (PHP 5.0)</li>
               <li>Github (As replacement of Sourceforge)</li>
               <li>Namespaces (PHP 5.3)</li>
-              <li>PHP standars (PSR-x)</li>
+              <li>PHP standards (PSR-x)</li>
             </ul>
             </p>
             <aside class="notes">
-              Autoloading: how to search files with classes.
+              Autoloading: how to search files with classes. <br />
+              Meanwhile in the Drupal island...
             </aside>
           </section>
         </section>
 
         <section>
+          <section>
+            <h2>The drupal island</h2>
+            <p>
+              <img src="images/drupal-diver.png" alt="Drupal diver" width="400">
+            </p>
+            <aside class="notes">
+              PHP is going to parties and drupal is not invited.
+            </aside>
+          </section>
           <section>
             <h2>Drush make (2010)</h2>
             <p>
@@ -153,14 +167,14 @@ projects[nodequeue][patch][] = "http://drupal.org/files/issues/nodequeue_d7_auto
 libraries[jquery.cycle][download][type] = get
 libraries[jquery.cycle][download][url] = http://malsup.com/jquery/cycle/release/jquery.cycle.zip?v2.99
 libraries[jquery.cycle][destination] = libraries
-          </code></pre>
-					</p>
-						<aside class="notes">
+            </code></pre>
+            </p>
+          <aside class="notes">
               Brings automation <br>
               Allows patches, fixing version, external libraries, choice of folder, not all the code in the repository, can get from cvs. <br>
               This in INI format, it also supports YAML.
-            </aside>
-				  </section>
+          </aside>
+          </section>
           <section>
             <h2>Problems</h2>
             <p>
@@ -180,15 +194,6 @@ libraries[jquery.cycle][destination] = libraries
         </section>
 
         <section>
-          <section>
-            <h2>The drupal island</h2>
-            <p>
-              <img src="images/drupal-diver.png" alt="Drupal diver" width="400">
-            </p>
-            <aside class="notes">
-              PHP is going to parties and drupal is not invited.
-            </aside>
-          </section>
           <section>
             <h2>Some brave sailors</h2>
             <p>
@@ -224,15 +229,27 @@ libraries[jquery.cycle][destination] = libraries
         </section>
 
         <section>
+
           <section>
             <h2>Introducing Composer - 2012</h2>
             <p>
             <img src="images/composer.png" alt="Director" width="400">
             </p>
             <aside class="notes">
-              Ugly logo.
+              Is a fairly new tool, it has a history, is used by drupal core. <br />
+              Ugly logo. <br />
             </aside>
           </section>
+
+          <section>
+            <p>
+            <img src="images/composer-badass.png" alt="Director" width="400">
+            </p>
+            <aside class="notes">
+              Better logo. <br />
+            </aside>
+          </section>
+
           <section>
             <h2>The need</h2>
             <p>
@@ -263,7 +280,7 @@ libraries[jquery.cycle][destination] = libraries
               <li class="fragment visible" data-fragment-index="1">Resolves dependencies</li>
               <li class="fragment visible" data-fragment-index="2">Each project defines its own requirements</li>
               <li class="fragment visible" data-fragment-index="3">Performs build tasks</li>
-              <li class="fragment visible" data-fragment-index="3">Autoloading: all code under the same roof:</li>
+              <li class="fragment visible" data-fragment-index="4">Autoloading: all code under the same roof:</li>
             </ul>
             </p>
             <aside class="notes">
@@ -322,12 +339,12 @@ $ curl -sS https://getcomposer.org/installer | php -- --install-dir=bin
             <p>
             <pre>
             <code>
-composer require &lt;vendor&gt;/&lt;package&gt;
+composer require &lt;vendor&gt;/&lt;package&gt;:"&lt;version-constrain&gt;"
             </code>
             </pre>
             </p>
             <aside class="notes">
-              It will write your json for you.
+              It will write your json for you. <br />
             </aside>
           </section>
           <section>
@@ -338,15 +355,16 @@ composer require &lt;vendor&gt;/&lt;package&gt;
     "name": "rodrigoaguilera/mydrupalsite",
     "description": "This site is awesome.",
     "require": {
-        "drupal/honeypot": "8.1.*"
+        "drupal/honeypot": "1.*"
     },
     "require-dev": {
-        "drupal/devel": "8.1.*"
+        "drupal/devel": "1.*"
     }
 }
             </code></pre>
             <aside class="notes">
               Is another shopping list but for higher level stuff. <br>
+              Devel modules are separated. <br />
               Commerce as an example that uses it extensibly.
             </aside>
           </section>
@@ -401,7 +419,7 @@ composer exec drush
             <aside class="notes">
               Examples: drush, phpunit, phpcs, behat... <br>
               Is a problem not easy to solve for newbies. <br>
-              Drush solves it with drush launcher.
+              Drush solves it with drush launcher. <br />
             </aside>
           </section>
 
@@ -454,22 +472,29 @@ composer exec drush
 composer install --prefer-dist --no-dev --optimize-autoloader
             </code>
             </pre>
+            <ul>
+              <li>No git repository files</li>
+              <li>The <code>require-dev</code> section is ignored</li>
+              <li>Faster autoloader</li>
+            </ul>
             </p>
             <aside class="notes">
             </aside>
           </section>
           <section>
-            <h2>Component vs project</h2>
+            <h2>Component vs. project</h2>
             <p>
-              The composer.json for a project has more capabalities like:
+              The composer.json for a project (the root package) has more capabalities like:
               <ul>
                 <li>Use your own repos</li>
-                <li>Define hook scripts</li>
+                <li>Define hook scripts (post-install, pre-update, etc.)</li>
+                <li>Configuration</li>
               </ul>
             </p>
             <aside class="notes">
               aka reusable library <br>
-              Don't have to wait for new releases.
+              Root project depends on the context. <br />
+              you don't have to write it for a contrib module. <br />
             </aside>
           </section>
           <section>
@@ -500,13 +525,13 @@ composer install --prefer-dist --no-dev --optimize-autoloader
             </aside>
           </section>
           <section>
-            <h2>Install or update</h2>
+            <h2>Quiz: <code>Install</code> or <code>update</code></h2>
             <p>
             <ul>
-            <li>Make sure you have the last updates from other developers.</li>
-            <li>Deploying a new release of your application to production.</li>
-            <li>Checked out a new project and want to start coding.</li>
-            <li>Grab new versions for the dependencies of your project.</li>
+              <li>Make sure you have the last updates from other developers.</li>
+              <li>Deploying a new release of your application to production.</li>
+              <li>Checked out with git a new project and want to start coding.</li>
+              <li>Grab new versions for the dependencies of your project.</li>
             </ul>
             </p>
             <aside class="notes">
@@ -523,7 +548,7 @@ composer install --prefer-dist --no-dev --optimize-autoloader
 
             </p>
             <aside class="notes">
-              Is conceived as a replacement for drush make.
+              Is conceived as a replacement for drush make. <br />
               People from pantheon, acquia are contributing.
             </aside>
           </section>
@@ -532,17 +557,18 @@ composer install --prefer-dist --no-dev --optimize-autoloader
             <p>
             <ul>
               <li>Drupal will be installed with correct permissions ready for install.</li>
+              <li>Declaring a new depencency and downloading is one semantic command.</li>
               <li>Modules, themes, and profiles (packages of type <code>drupal-[module|theme|profile]</code>) will be placed in <code>web/[module|theme|profile]/contrib/</code></li>
-              <li>Creates default writable versions of <code>settings.php</code> and <code>services.yml</code>.</li>
+              <li>Creates default writable version of <code>settings.php</code>.</li>
               <li>Latest version of drush is installed locally for use at <code>vendor/bin/drush</code>.</li>
               <li>Latest version of DrupalConsole is installed locally for use at <code>vendor/bin/drupal</code>.</li>
             </ul>
             </p>
             <aside class="notes">
               <ul>
-              <li>Autoloader is implemented to use the generated composer autoloader instead of Drupal.</li>
-              <li>separates scaffold files from the real drupal core</li>
-              <li>Has a skeleton to put your drush aliases</li>
+                <li>Autoloader is implemented to use the generated composer autoloader instead of Drupal.</li>
+                <li>separates scaffold files from the real drupal core</li>
+                <li>Has a skeleton to put your drush aliases, config, tests</li>
               </ul>
             </aside>
           </section>
@@ -560,8 +586,105 @@ composer install --prefer-dist --no-dev --optimize-autoloader
         </section>
 
         <section>
+          <section>
+            <h2>Compose all the things!</h2>
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <h2>Frontend libraries are also dependencies</h2>
+            <ul>
+              <li>Not in packagist (npmjs.org or bower)</li>
+              <li>Different locations than modules</li>
+            </ul>
+
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <h2>asset-packagist.org</h2>
+            <ul>
+              <li>Add one repository to your root composer.json</li>
+              <li>Collects both packages from npm and bower under 2 vendors</li>
+              <li>Enables to do <code>composer require npm-asset/bootstrap-sass:"^3"</code></li>
+              <li>Needs oomphinc/composer-installers-extender to define custom paths</li>
+            </ul>
+
+            <aside class="notes">
+              boostrap goes into custom theme but colorbox goes into libraries. <br />
+            </aside>
+          </section>
+
+          <section>
+            <h2>Binary tools are also dependencies</h2>
+            <ul>
+              <li>Generally found in distribution's repositories (apt-get, yum, etc)</li>
+              <li>Usually compiled for a certain arquitecture and operating system</li>
+              <li>Specific packages for each binary</li>
+              <li>Available on vendor/bin/</li>
+              <li>Examples: mouf/nodejs-installer, jakoch/phantomjs-installer </li>
+            </ul>
+
+            <aside class="notes">
+              Phantomjs abandoned. <br />
+            </aside>
+          </section>
+
+          <section>
+            <img src="images/dawg-dependencies.jpg" alt="Dawg" style="border: 0; width: 100%;">
+            <aside class="notes">
+              Dependency on other depency managers like npm. <br />
+            </aside>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Recommendations</h2>
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <h2>Global minimum-stability</h2>
+            <p>For example:</p>
+            <pre>
+              "minimum-stability": "dev"
+            </pre>
+            <p>You can be more semantic and declare it for each package like</p>
+            <pre>
+               composer require "drupal/webform":"^5@beta",
+            </pre>
+            <aside class="notes">
+            </aside>
+          </section>
+          <section>
+            <h2>Config options</h2>
+            <pre><code class="json" data-trim>
+"config": {
+    "sort-packages": true,
+    "discard-changes": true,
+    "process-timeout": 600,
+    "platform": {
+      "php": "7.1.0"
+    }
+  }
+            </code></pre>
+            <aside class="notes">
+              Avoid merge conflicts <br />
+              Since we use patches we need that from CI. <br />
+              Composer can take long especially on first run <br />
+              Depend on PHP version. <br />
+            </aside>
+          </section>
+        </section>
+
+        <section>
           <h2>Questions</h2>
           <aside class="notes">
+            I didn't talk about operators for dependencies.
           </aside>
         </section>
         <section style="text-align: left;">
