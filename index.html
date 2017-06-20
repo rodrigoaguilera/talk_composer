@@ -322,18 +322,71 @@ $ curl -sS https://getcomposer.org/installer | php -- --install-dir=bin
               This installs a binary.
             </aside>
           </section>
+
           <section>
-            <h2>Packagist.org</h2>
-            <p>
-            Main repository for packages.<br>
-            There is also https://packagist.drupal-composer.org/ as a mirror of the modules and themes on drupal.org
-            </p>
+            <h2>Structure of composer.json</h2>
+            <p>Base manifest file for your project</p>
+            <pre><code class="json" data-trim>
+{
+    "name": "rodrigoaguilera/mydrupalsite",
+    "description": "This site is awesome.",
+    "require": {
+        "drupal/honeypot": "1.*"
+    },
+    "require-dev": {
+        "drupal/devel": "1.*"
+    },
+    "config": {},
+    "extra": {}
+}
+            </code></pre>
             <aside class="notes">
-              It had an exponential grow.<br>
-              Declares what is stable <br>
-              It manages outdated packages. <br>
+              Is another shopping list but for higher level stuff. <br>
+              Devel modules are separated. <br />
+              Commerce as an example that uses it extensibly. <br />
+              There is other sections. <br />
             </aside>
           </section>
+          <section>
+            <h2>Composer.json and composer.lock</h2>
+            <p>
+              Dependencies solved.<br>
+              Is the key for everyone to have the same versions.<br>
+              Always commit your lock file.
+            </p>
+            <aside class="notes">
+              Everything downloaded with an exact version number. <br>
+              Lock is a bigger file. <br>
+            </aside>
+          </section>
+
+          <section>
+            <h2>Basic Commands</h2>
+            <aside class="notes">
+            </aside>
+          </section>
+
+          <section>
+            <h2>composer install</h2>
+            <p>
+            Reads composer.lock and downloads all your dependencies in the /vendor directory.
+            </p>
+            <aside class="notes">
+              Everything gets a cache. <br>
+              Needed to develop drupal 8.1.x
+            </aside>
+          </section>
+
+          <section>
+            <h2>composer update</h2>
+            <p>Writes a new composer.lock based on what is on composer.json and downloads what is needed <br>
+            You can update only one package to do more atomic updates.
+            </p>
+            <aside class="notes">
+              For last release crazies.
+            </aside>
+          </section>
+
           <section>
             <h2>Require</h2>
             <p>
@@ -345,58 +398,21 @@ composer require &lt;vendor&gt;/&lt;package&gt;:"&lt;version-constrain&gt;"
             </p>
             <aside class="notes">
               It will write your json for you. <br />
+              semantic <br />
             </aside>
           </section>
+
           <section>
-            <h2>composer.json</h2>
-            <p>Base manifest file for your project</p>
-            <pre><code class="json" data-trim>
-{
-    "name": "rodrigoaguilera/mydrupalsite",
-    "description": "This site is awesome.",
-    "require": {
-        "drupal/honeypot": "1.*"
-    },
-    "require-dev": {
-        "drupal/devel": "1.*"
-    }
-}
-            </code></pre>
-            <aside class="notes">
-              Is another shopping list but for higher level stuff. <br>
-              Devel modules are separated. <br />
-              Commerce as an example that uses it extensibly.
-            </aside>
-          </section>
-          <section>
-            <h2>Composer.json vs composer.lock</h2>
+            <h2>Packagist.org</h2>
             <p>
-              Dependencies solved.<br>
-              Is the key for everyone to have the same versions.<br>
-              Always commit your lock file.
+            Main repository for packages.<br>
+            There is also https://packages.drupal.org/8 as a mirror of the modules and themes on drupal.org
             </p>
             <aside class="notes">
-              Everything downloaded with an exact version number. <br>
-              Lock is a bigger file. <br>
-            </aside>
-          </section>
-          <section>
-            <h2>composer install</h2>
-            <p>
-            Reads composer.lock and downloads all your dependencies in the /vendor directory.
-            </p>
-            <aside class="notes">
-              Everything gets a cache. <br>
-              Needed to develop drupal 8.1.x
-            </aside>
-          </section>
-          <section>
-            <h2>composer update</h2>
-            <p>Writes a new composer.lock based on what is on composer.json and downloads what is needed <br>
-            You can update only one package to do more atomic updates.
-            </p>
-            <aside class="notes">
-              For last release crazies.
+              It had an exponential growth.<br>
+              Declares what is stable. <br>
+              It manages outdated packages. <br>
+              The community set up a repository befor the official. <br />
             </aside>
           </section>
 
@@ -418,7 +434,7 @@ composer exec drush
             </p>
             <aside class="notes">
               Examples: drush, phpunit, phpcs, behat... <br>
-              Is a problem not easy to solve for newbies. <br>
+              Having this binaries in your PATH Is not an easy problem to solve for newbies. <br>
               Drush solves it with drush launcher. <br />
             </aside>
           </section>
@@ -426,13 +442,20 @@ composer exec drush
           <section>
             <h2>Global vs local</h2>
             <p>
-            The power of comes from having per project dependencies. <br>
-            but you can also install composer packages shared by everything and everyone. <br>
-            Use "composer global" before commands. (neeeds $COMPOSER_HOME) <br>
+            <ul>
+              <li>
+                The power of composer comes from having per project dependencies. <br>
+              </li>
+              <li>
+                But you can also install composer packages shared by everything and everyone. <br>
+              </li>
+              <li>
+                Use "composer global" before commands. (neeeds $COMPOSER_HOME) <br>
+              </li>
+            </ul>
             </p>
             <aside class="notes">
               Computer vs. only my repo. <br>
-              Same for config. <br>
             </aside>
           </section>
           <section>
@@ -450,7 +473,7 @@ composer exec drush
             </pre>
             </p>
             <aside class="notes">
-               Follow restrictions.
+               Follow restrictions on install.
             </aside>
           </section>
           <section>
@@ -505,7 +528,7 @@ composer install --prefer-dist --no-dev --optimize-autoloader
 {
   "require": {
     "cweagans/composer-patches": "~1.0",
-    "drupal/drupal": "8.0.*@dev"
+    "drupal/drupal": "8.4.*@dev"
   },
   "config": {
     "preferred-install": "source"
@@ -522,19 +545,48 @@ composer install --prefer-dist --no-dev --optimize-autoloader
             </pre>
             </p>
             <aside class="notes">
+              No command yet so it requires composer update <br />
             </aside>
           </section>
+
+          <section>
+            <img src="images/quiz.gif" alt="Dawg" style="border: 0; width: 100%;">
+            <aside class="notes">
+            </aside>
+          </section>
+
           <section>
             <h2>Quiz: <code>Install</code> or <code>update</code></h2>
             <p>
             <ul>
-              <li>Make sure you have the last updates from other developers.</li>
-              <li>Deploying a new release of your application to production.</li>
-              <li>Checked out with git a new project and want to start coding.</li>
-              <li>Grab new versions for the dependencies of your project.</li>
+              <li class="fragment" data-fragment-index="0">
+                Be sure you have the last updates from your team:
+                <code class="fragment" data-fragment-index="1">
+                  composer install
+                </code>
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                Deploying a new release of your application to production.
+                <code class="fragment" data-fragment-index="3">
+                  composer install
+                </code>
+              </li>
+              <li class="fragment" data-fragment-index="4">
+                Checked out with git a new project and want to start coding.
+                <code class="fragment" data-fragment-index="5">
+                  composer install
+                </code>
+              </li>
+              <li class="fragment" data-fragment-index="6">
+                Fetch new versions for the dependencies of your project.
+                <code class="fragment" data-fragment-index="7">
+                  composer update
+                </code>
+              </li>
             </ul>
             </p>
             <aside class="notes">
+              Only get new versions if you set your dependencies right.
             </aside>
           </section>
         </section>
@@ -552,13 +604,28 @@ composer install --prefer-dist --no-dev --optimize-autoloader
               People from pantheon, acquia are contributing.
             </aside>
           </section>
+
           <section>
             <h2>What does the template do?</h2>
             <p>
             <ul>
-              <li>Drupal will be installed with correct permissions ready for install.</li>
+              <li>Drupal will be downloaded with correct permissions ready for install.</li>
               <li>Declaring a new depencency and downloading is one semantic command.</li>
               <li>Modules, themes, and profiles (packages of type <code>drupal-[module|theme|profile]</code>) will be placed in <code>web/[module|theme|profile]/contrib/</code></li>
+            </ul>
+            </p>
+            <aside class="notes">
+              <ul>
+                <li>separates scaffold files from the real drupal core</li>
+                <li>Has a skeleton to put your drush aliases, config, tests</li>
+              </ul>
+            </aside>
+          </section>
+
+          <section>
+            <h2>What does the template do?</h2>
+            <p>
+            <ul>
               <li>Creates default writable version of <code>settings.php</code>.</li>
               <li>Latest version of drush is installed locally for use at <code>vendor/bin/drush</code>.</li>
               <li>Latest version of DrupalConsole is installed locally for use at <code>vendor/bin/drupal</code>.</li>
@@ -567,11 +634,11 @@ composer install --prefer-dist --no-dev --optimize-autoloader
             <aside class="notes">
               <ul>
                 <li>Autoloader is implemented to use the generated composer autoloader instead of Drupal.</li>
-                <li>separates scaffold files from the real drupal core</li>
-                <li>Has a skeleton to put your drush aliases, config, tests</li>
               </ul>
             </aside>
           </section>
+
+
           <section>
             <h2>Profit :D</h2>
             <ul>
@@ -579,7 +646,6 @@ composer install --prefer-dist --no-dev --optimize-autoloader
               <li>Updating all your modules to the stable versions is just a couple of words away</li>
               <li>Your continous integration system can become much more simple</li>
             </ul>
-
             <aside class="notes">
             </aside>
           </section>
@@ -600,6 +666,7 @@ composer install --prefer-dist --no-dev --optimize-autoloader
             </ul>
 
             <aside class="notes">
+              Any git repo can be a composer repo but is not practical for a lot of libraries. <br />
             </aside>
           </section>
 
@@ -608,12 +675,13 @@ composer install --prefer-dist --no-dev --optimize-autoloader
             <ul>
               <li>Add one repository to your root composer.json</li>
               <li>Collects both packages from npm and bower under 2 vendors</li>
-              <li>Enables to do <code>composer require npm-asset/bootstrap-sass:"^3"</code></li>
-              <li>Needs oomphinc/composer-installers-extender to define custom paths</li>
+              <li>Enables the ability to do <code>composer require npm-asset/bootstrap-sass:"^3"</code></li>
+              <li>Needs <code>oomphinc/composer-installers-extender</code> to define custom paths</li>
             </ul>
 
             <aside class="notes">
               boostrap goes into custom theme but colorbox goes into libraries. <br />
+              Reduced the complexity of adding a third party library.
             </aside>
           </section>
 
@@ -658,6 +726,7 @@ composer install --prefer-dist --no-dev --optimize-autoloader
                composer require "drupal/webform":"^5@beta",
             </pre>
             <aside class="notes">
+              There is an issue for this. <br />
             </aside>
           </section>
           <section>
@@ -684,7 +753,8 @@ composer install --prefer-dist --no-dev --optimize-autoloader
         <section>
           <h2>Questions</h2>
           <aside class="notes">
-            I didn't talk about operators for dependencies.
+            I didn't talk about operators for dependencies. <br />
+            Don't commit your vendor or your contrib <br />
           </aside>
         </section>
         <section style="text-align: left;">
