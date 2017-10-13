@@ -44,34 +44,36 @@
 			<div class="slides">
 				<section>
 					<h1>
-      Better dependency management: leverage composer to the limit.
+      Better dependency management: leverage composer to the limit
           </h1>
 					<h3>Can I use composer to do this?</h3>
 					<p>
-						<small>A talk by <a href="http://www.rodrigoaguilera.net">Rodrigo Aguilera</a> / <a href="http://twitter.com/marinero">@marinero</a></small>
+						<small>A talk by <a href="https://www.rodrigoaguilera.net">Rodrigo Aguilera</a> / <a href="http://twitter.com/marinero">@marinero</a></small>
 					</p>
 						<aside class="notes">
-              Motivation: As I was moving to Drupal 8 I knew there was something better.
             </aside>
 				</section>
 
-				<section>
+        <section>
           <h2>Hello There</h2>
           <p class="fragment">
             <img src="ymbralogo.png" alt="Ymbra" width="250" style="border: 0">
+            <br />
+            Focused on processes, workflows and shared tools
           </p>
 
             <aside class="notes">
-              Thanks to DA. Ymbra <br />
+              Thanks to Moldovan asociation and sponsors.
               I'm from Madrid, now I live in Barcelona. I work as a drupal developer at Ymbra, Citilab. <br />
               I have been giving talks on default content, multilingual, behat, code review... <br />
               I have a curiosity to improve process. <br>
+              Motivation: As I was moving to Drupal 8 I knew there was something better. <br />
             </aside>
-				</section>
+        </section>
 
-				<section>
-					<h2>Agenda</h2>
-					<p>
+        <section>
+          <h2>Agenda</h2>
+          <p>
           <ul>
             <li>The PHP reinassance</li>
             <li>The old days of drush make and the Drupal island</li>
@@ -80,11 +82,12 @@
             <li>Compose all the things!</li>
           </ul>
           </p>
-						<aside class="notes">
-              This an elastic talk I can give more weight to the beginning or the end.<br />
-              How many of you alredy build your projects with composer? <br />
-            </aside>
-				</section>
+          <aside class="notes">
+            No demos <br />
+            This an elastic talk I can give more weight to the beginning or the end.<br />
+            How many of you alredy build your projects with composer? <br />
+          </aside>
+        </section>
 
 				<section>
 					<section>
@@ -198,13 +201,6 @@ libraries[jquery.cycle][destination] = libraries
             <h2>Some brave sailors</h2>
             <p>
               <img src="images/sailor.png" alt="Drupal diver" width="400">
-            </p>
-            <aside class="notes">
-            </aside>
-          </section>
-          <section>
-            <h2>Some brave sailors</h2>
-            <p>
               <img src="images/sailorwoman.jpg" alt="Sailorwoman" width="400">
             </p>
             <aside class="notes">
@@ -450,7 +446,7 @@ composer exec drush
                 But you can also install composer packages shared by everything and everyone. <br>
               </li>
               <li>
-                Use "composer global" before commands. (neeeds $COMPOSER_HOME) <br>
+                Use "composer global" before commands. (needs environment variable $COMPOSER_HOME to be set) <br>
               </li>
             </ul>
             </p>
@@ -459,7 +455,7 @@ composer exec drush
             </aside>
           </section>
           <section>
-            <h2>Simulating enviroments</h2>
+            <h2>Simulating environments</h2>
             <p>
             <pre>
             <code class="json">
@@ -653,7 +649,8 @@ composer install --prefer-dist --no-dev --optimize-autoloader
 
         <section>
           <section>
-            <h2>Compose all the things!</h2>
+            <img src="images/compose-all.jpg" alt="Dawg" style="border: 0; width: 100%;">
+
             <aside class="notes">
             </aside>
           </section>
@@ -716,7 +713,7 @@ composer install --prefer-dist --no-dev --optimize-autoloader
           </section>
 
           <section>
-            <h2>Global minimum-stability</h2>
+            <h2>Minimum stability for all the dependencies or one by one</h2>
             <p>For example:</p>
             <pre>
               "minimum-stability": "dev"
@@ -748,8 +745,29 @@ composer install --prefer-dist --no-dev --optimize-autoloader
               Depend on PHP version. <br />
             </aside>
           </section>
+          <section>
+            <h2>Vendoring</h2>
+            <p>Committing dependencies in the repo</p>
+            <aside class="notes">
+              Not recommeded. Ongoing discussion. <br />
+              Neither composer nor git are deploy tools. <br />
+            </aside>
+          </section>
         </section>
 
+        <section>
+          <section>
+            <h2>The future</h2>
+            <ul>
+              <li>Better user experience</li>
+              <li>Best practices</li>
+            </ul>
+            <aside class="notes">
+              Developers, site builders... <br />
+              I gave you some best practices but nothing is standard.
+            </aside>
+          </section>
+        </section>
         <section>
           <h2>Questions</h2>
           <aside class="notes">
