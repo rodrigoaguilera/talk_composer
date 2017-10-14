@@ -48,16 +48,16 @@
           </h1>
 					<h3>Can I use composer to do this?</h3>
 					<p>
-						<small>A talk by <a href="https://www.rodrigoaguilera.net">Rodrigo Aguilera</a> / <a href="http://twitter.com/marinero">@marinero</a></small>
+						<small>A talk by <a href="https://www.rodrigoaguilera.net">Rodrigo Aguilera</a> / <a href="https://twitter.com/marinero">@marinero</a></small>
 					</p>
 						<aside class="notes">
             </aside>
 				</section>
 
         <section>
-          <h2>Hello There</h2>
+          <h2>Norok!</h2>
           <p class="fragment">
-            <img src="ymbralogo.png" alt="Ymbra" width="250" style="border: 0">
+            <img src="ymbralogo.png" alt="Ymbra" width="250" style="border: 0; background-color: grey; padding: 2em;">
             <br />
             Focused on processes, workflows and shared tools
           </p>
@@ -65,9 +65,9 @@
             <aside class="notes">
               Thanks to Moldovan asociation and sponsors.
               I'm from Madrid, now I live in Barcelona. I work as a drupal developer at Ymbra, Citilab. <br />
-              I have been giving talks on default content, multilingual, behat, code review... <br />
-              I have a curiosity to improve process. <br>
               Motivation: As I was moving to Drupal 8 I knew there was something better. <br />
+              I have a curiosity to improve process. <br>
+              I have been giving talks on default content, multilingual, behat, code review... <br />
             </aside>
         </section>
 
@@ -99,9 +99,9 @@
             </aside>
 					</section>
 					<section>
-						<h2>We have too much code</h2>
+						<h2>We had too much code</h2>
 						<p>
-              Takes less time to write (or copypaste) a solution yourself than to find a component you can reuse.
+              Took less time to write (or copypaste) a solution yourself than to find a component you can reuse.
             </p>
 						<aside class="notes">
               Is not such a bad idea but it wasn't getting PHP to be any good.
@@ -111,7 +111,7 @@
 						<h2>Reusability</h2>
 						<p>Sharing must be easy or it won't happen.</p>
             <p>Free software as a feature.</p>
-						<aside class="notes">
+            <aside class="notes">
               Free software as a practical feature comes into play because you see all this different projects sharing code.
             </aside>
           </section>
@@ -123,7 +123,7 @@
               <li>Class autoloading (PHP 5.0)</li>
               <li>Github (As replacement of Sourceforge)</li>
               <li>Namespaces (PHP 5.3)</li>
-              <li>PHP standards (PSR-x)</li>
+              <li>PHP standards (PSR-x) from PHP-FIG</li>
             </ul>
             </p>
             <aside class="notes">
@@ -140,7 +140,8 @@
               <img src="images/drupal-diver.png" alt="Drupal diver" width="400">
             </p>
             <aside class="notes">
-              PHP is going to parties and drupal is not invited.
+              PHP is going to parties and drupal is not invited. <br />
+              Don't worry neither was wordpress or joomla.
             </aside>
           </section>
           <section>
@@ -149,8 +150,8 @@
             <img src="images/drush.jpg" alt="">
             </p>
             <aside class="notes">
-              It wasn't part of drush and then it got merged into it.
-              <br> answers the problem about not having drupal and modules in repo.
+              It wasn't part of drush and then it got merged into it. <br />
+              answers the problem about not having drupal and modules in repo.
             </aside>
           </section>
           <section>
@@ -247,25 +248,26 @@ libraries[jquery.cycle][destination] = libraries
           </section>
 
           <section>
-            <h2>The need</h2>
+            <h2>The main goals</h2>
             <p>
             <ul>
-              <li>3rd party libraries.</li>
-              <li>Dependency hell.</li>
-              <li>Other PHP projects didn't had drush make.</li>
+              <li><strong>Reuse </strong>third party libraries.</li>
+              <li><strong>Avoid </strong>dependency hell.</li>
+              <li><strong>Standarization</strong> among PHP projects</li>
             </ul>
             </p>
             <aside class="notes">
-              It was decided to use components from other projects.
+              It was decided to use components from other projects. <br />
+              Other PHP projects didn't had drush make.
             </aside>
           </section>
           <section>
             <h2>Definition</h2>
             <p>
-            Composer is a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
+            Composer is a tool for dependency management in PHP. It allows you to declare the dependent <strong>libraries </strong>your project needs and it will install them in your project for you.
             </p>
             <aside class="notes">
-              When we say libraries it can be other pieces of php code like themes or modules.
+              When we say libraries it can be other pieces of php code like themes,  modules, or tools like behat.
             </aside>
           </section>
           <section>
@@ -276,7 +278,7 @@ libraries[jquery.cycle][destination] = libraries
               <li class="fragment visible" data-fragment-index="1">Resolves dependencies</li>
               <li class="fragment visible" data-fragment-index="2">Each project defines its own requirements</li>
               <li class="fragment visible" data-fragment-index="3">Performs build tasks</li>
-              <li class="fragment visible" data-fragment-index="4">Autoloading: all code under the same roof:</li>
+              <li class="fragment visible" data-fragment-index="4">Autoloading: all code under the same roof</li>
             </ul>
             </p>
             <aside class="notes">
@@ -338,17 +340,25 @@ $ curl -sS https://getcomposer.org/installer | php -- --install-dir=bin
             </code></pre>
             <aside class="notes">
               Is another shopping list but for higher level stuff. <br>
+              I just want Placinte  and I don't care about the ingredients (Harbus as dessert)<br />
               Devel modules are separated. <br />
-              Commerce as an example that uses it extensibly. <br />
               There is other sections. <br />
             </aside>
           </section>
           <section>
             <h2>Composer.json and composer.lock</h2>
             <p>
-              Dependencies solved.<br>
-              Is the key for everyone to have the same versions.<br>
-              Always commit your lock file.
+            <ul>
+              <li>
+                The lock file has the dependencies already solved.<br>
+              </li>
+              <li>
+                The key to get everyone same versions is the lock file.
+              </li>
+              <li>
+                Always commit your lock file.
+              </li>
+            </ul>
             </p>
             <aside class="notes">
               Everything downloaded with an exact version number. <br>
@@ -359,27 +369,40 @@ $ curl -sS https://getcomposer.org/installer | php -- --install-dir=bin
           <section>
             <h2>Basic Commands</h2>
             <aside class="notes">
+              There is more like "composer why" or why-not
             </aside>
           </section>
 
           <section>
-            <h2>composer install</h2>
+            <h2>Install</h2>
+            <pre>
+            <code>
+composer install
+            </code>
+            </pre>
             <p>
             Reads composer.lock and downloads all your dependencies in the /vendor directory.
             </p>
             <aside class="notes">
               Everything gets a cache. <br>
-              Needed to develop drupal 8.1.x
+              Needed to develop drupal 8.1.x <br />
+              Options to use mostly on production environments. <br />
             </aside>
           </section>
 
           <section>
-            <h2>composer update</h2>
-            <p>Writes a new composer.lock based on what is on composer.json and downloads what is needed <br>
+            <h2>Update</h2>
+            <pre>
+            <code>
+composer update [&lt;vendor&gt;/&lt;package&gt;]
+            </code>
+            </pre>
+            <p>Writes a new composer.lock based on what is on composer.json and downloads only what is missing. <br>
             You can update only one package to do more atomic updates.
             </p>
             <aside class="notes">
-              For last release crazies.
+              For last release crazies. <br />
+              A big project with lots of modules will update too much.
             </aside>
           </section>
 
@@ -393,8 +416,18 @@ composer require &lt;vendor&gt;/&lt;package&gt;:"&lt;version-constrain&gt;"
             </pre>
             </p>
             <aside class="notes">
-              It will write your json for you. <br />
+              It will write your .json and .lock for you. <br />
               semantic <br />
+              That is it. Three commands <br />
+            </aside>
+          </section>
+
+          <section>
+            <h2>Origin of libraries, modules, tools, etc.</h2>
+            <p>
+              The concept of repositories.
+            </p>
+            <aside class="notes">
             </aside>
           </section>
 
@@ -408,7 +441,7 @@ composer require &lt;vendor&gt;/&lt;package&gt;:"&lt;version-constrain&gt;"
               It had an exponential growth.<br>
               Declares what is stable. <br>
               It manages outdated packages. <br>
-              The community set up a repository befor the official. <br />
+              The drupal community set up a repository before the official. <br />
             </aside>
           </section>
 
@@ -443,10 +476,10 @@ composer exec drush
                 The power of composer comes from having per project dependencies. <br>
               </li>
               <li>
-                But you can also install composer packages shared by everything and everyone. <br>
+                But you can also install composer plugins or tools shared by all the projects in your machine. <br>
               </li>
               <li>
-                Use "composer global" before commands. (needs environment variable $COMPOSER_HOME to be set) <br>
+                Use "composer global" before commands. (needs environment variable <code>$COMPOSER_HOME</code> to be set) <br>
               </li>
             </ul>
             </p>
@@ -475,12 +508,12 @@ composer exec drush
           <section>
             <h2>Semantic versioning</h2>
             <p>
-            <img src="http://content.screencast.com/users/rodrigoaguilera/folders/Jing/media/fc388daa-b3e9-4af5-8985-939745c5a297/00000039.png" alt="Versioning">
+            <img src="/images/semantic.png" alt="Versioning">
             </p>
             <aside class="notes">
               All packagist supports this.<br>
               A new feature of drupal 8. <br>
-              Contrib doesn't support it.
+              Contrib doesn't support it. <br />
             </aside>
           </section>
           <section>
@@ -513,7 +546,7 @@ composer install --prefer-dist --no-dev --optimize-autoloader
             <aside class="notes">
               aka reusable library <br>
               Root project depends on the context. <br />
-              you don't have to write it for a contrib module. <br />
+              you don't usually have to write it for a contrib module. <br />
             </aside>
           </section>
           <section>
@@ -524,7 +557,7 @@ composer install --prefer-dist --no-dev --optimize-autoloader
 {
   "require": {
     "cweagans/composer-patches": "~1.0",
-    "drupal/drupal": "8.4.*@dev"
+    "drupal/drupal": "8.5.*@dev"
   },
   "config": {
     "preferred-install": "source"
@@ -542,6 +575,7 @@ composer install --prefer-dist --no-dev --optimize-autoloader
             </p>
             <aside class="notes">
               No command yet so it requires composer update <br />
+              If a library is heavily patched a fork is recommended. <br />
             </aside>
           </section>
 
@@ -552,7 +586,7 @@ composer install --prefer-dist --no-dev --optimize-autoloader
           </section>
 
           <section>
-            <h2>Quiz: <code>Install</code> or <code>update</code></h2>
+            <h2>Quiz: <code>install</code> or <code>update</code></h2>
             <p>
             <ul>
               <li class="fragment" data-fragment-index="0">
@@ -635,7 +669,6 @@ composer install --prefer-dist --no-dev --optimize-autoloader
               </ul>
             </aside>
           </section>
-
 
           <section>
             <h2>Profit :D</h2>
@@ -750,6 +783,7 @@ composer install --prefer-dist --no-dev --optimize-autoloader
           <section>
             <h2>Vendoring</h2>
             <p>Committing dependencies in the repo</p>
+            <img src="images/kittenkill.jpg" alt="Versioning">
             <aside class="notes">
               Not recommeded. Ongoing discussion. <br />
               Neither composer nor git are deploy tools. <br />
@@ -763,10 +797,12 @@ composer install --prefer-dist --no-dev --optimize-autoloader
             <ul>
               <li>Better user experience</li>
               <li>Best practices</li>
+              <li>Make parts of Drupal reusable for other PHP projects</li>
             </ul>
             <aside class="notes">
               Developers, site builders... <br />
-              I gave you some best practices but nothing is standard.
+              I gave you some best practices few are standard. <br />
+              Commerce as an example that uses it extensibly. <br />
             </aside>
           </section>
         </section>
@@ -780,7 +816,7 @@ composer install --prefer-dist --no-dev --optimize-autoloader
         <section style="text-align: left;">
           <h1>THE END</h1>
           <p>
-          Thank you. <br>
+          Multumesc. <br>
           - <a href="https://getcomposer.org/">https://getcomposer.org/</a> <br>
           </p>
         </section>
